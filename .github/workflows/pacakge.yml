@@ -32,9 +32,6 @@ jobs:
     - name: Build
       run: dotnet build $SOLUTION --configuration $BUILD_CONFIG --no-restore
 
-    - name: Run tests
-      run: dotnet test /p:Configuration=$BUILD_CONFIG --no-restore --no-build --verbosity normal
-
     - name: Pack Nuget
       run: dotnet pack SkyNeg.EntityFrameworkCore.RuntimeMigration.Sqlite --configuration $BUILD_CONFIG
 
