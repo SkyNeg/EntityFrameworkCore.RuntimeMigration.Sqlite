@@ -1,0 +1,44 @@
+name: Telegram Bot Core .NET package
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+    
+jobs:
+  build:
+
+    env:
+      BUILD_CONFIG: "Release"
+      SOLUTION: "src/SqliteRuntimeMigration.sln"
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.1.1
+
+    - name: Restore dependencies
+      run: nuget restore $SOLUTION
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3.0.3
+      with:
+        dotnet-version: 7.0.x
+
+    - name: Build
+      run: dotnet build $SOLUTION --configuration $BUILD_CONFIG --no-restore
+
+    - name: Run tests
+      run: dotnet test /p:Configuration=$BUILD_CONFIG --no-restore --no-build --verbosity normal
+
+    - name: Pack Nuget
+      run: dotnet pack SkyNeg.EntityFrameworkCore.RuntimeMigration.Sqlite --configuration $BUILD_CONFIG
+
+    - name: Publish Nuget to GitHub registry
+      run: dotnet nuget push SkyNeg.EntityFrameworkCore.RuntimeMigration.Sqlite/**/*.nupkg -k ${NUGET_TOKEN} -s https://nuget.pkg.github.com/SkyNeg/index.json --skip-duplicate --no-symbols 
+      env:
+        NUGET_TOKEN: ${{secrets.NUGET_TOKEN}}
