@@ -39,4 +39,4 @@ jobs:
     - name: Publish Nuget to GitHub registry
       run: dotnet nuget push src/SkyNeg.Sqlite.RuntimeMigration/**/*.nupkg -k ${PUBLISHER_TOKEN} -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols 
       env:
-        NUGET_TOKEN: ${{secrets.PUBLISHER_TOKEN}}
+        PUBLISHER_TOKEN: ${{secrets.PUBLISHER_TOKEN}}
