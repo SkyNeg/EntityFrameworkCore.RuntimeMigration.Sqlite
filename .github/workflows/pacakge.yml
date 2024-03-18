@@ -37,6 +37,6 @@ jobs:
       run: dotnet pack $PROJECT --configuration $BUILD_CONFIG
 
     - name: Publish Nuget to GitHub registry
-      run: dotnet nuget push src/SkyNeg.Sqlite.RuntimeMigration/**/*.nupkg -k ${NUGET_TOKEN} -s https://nuget.pkg.github.com/SkyNeg/index.json --skip-duplicate --no-symbols 
+      run: dotnet nuget push src/SkyNeg.Sqlite.RuntimeMigration/**/*.nupkg -k ${PUBLISHER_TOKEN} -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols 
       env:
-        NUGET_TOKEN: ${{secrets.NUGET_TOKEN}}
+        NUGET_TOKEN: ${{secrets.PUBLISHER_TOKEN}}
