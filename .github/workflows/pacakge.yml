@@ -33,9 +33,9 @@ jobs:
       run: dotnet build $SOLUTION --configuration $BUILD_CONFIG --no-restore
 
     - name: Pack Nuget
-      run: dotnet pack SkyNeg.EntityFrameworkCore.RuntimeMigration.Sqlite --configuration $BUILD_CONFIG
+      run: dotnet pack src/SkyNeg.EntityFrameworkCore.RuntimeMigration.Sqlite --configuration $BUILD_CONFIG
 
     - name: Publish Nuget to GitHub registry
-      run: dotnet nuget push SkyNeg.EntityFrameworkCore.RuntimeMigration.Sqlite/**/*.nupkg -k ${NUGET_TOKEN} -s https://nuget.pkg.github.com/SkyNeg/index.json --skip-duplicate --no-symbols 
+      run: dotnet nuget push src/SkyNeg.EntityFrameworkCore.RuntimeMigration.Sqlite/**/*.nupkg -k ${NUGET_TOKEN} -s https://nuget.pkg.github.com/SkyNeg/index.json --skip-duplicate --no-symbols 
       env:
         NUGET_TOKEN: ${{secrets.NUGET_TOKEN}}
