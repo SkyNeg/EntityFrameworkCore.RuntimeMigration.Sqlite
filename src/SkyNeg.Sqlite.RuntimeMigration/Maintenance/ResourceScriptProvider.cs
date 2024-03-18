@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace SkyNeg.EntityFrameworkCore.RuntimeMigration.Sqlite
+namespace SkyNeg.Sqlite.RuntimeMigration
 {
     public class ResourceScriptProvider : IScriptProvider
     {

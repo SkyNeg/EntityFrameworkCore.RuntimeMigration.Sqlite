@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SkyNeg.EntityFrameworkCore.RuntimeMigration.Sqlite
+namespace SkyNeg.Sqlite.RuntimeMigration
 {
     [Table("_ComponentVersion")]
     public class ComponentVersion

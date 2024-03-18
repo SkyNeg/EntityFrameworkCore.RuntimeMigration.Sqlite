@@ -2,7 +2,7 @@
 using System.Data;
 using Microsoft.Data.Sqlite;
 
-namespace SkyNeg.EntityFrameworkCore.RuntimeMigration.Sqlite
+namespace SkyNeg.Sqlite.RuntimeMigration
 {
     public abstract class RuntimeContext : DbContext
     {

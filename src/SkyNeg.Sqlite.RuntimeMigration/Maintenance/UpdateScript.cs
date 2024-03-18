@@ -1,4 +1,4 @@
-﻿namespace SkyNeg.EntityFrameworkCore.RuntimeMigration.Sqlite
+﻿namespace SkyNeg.Sqlite.RuntimeMigration
 {
     public class UpdateScript
     {

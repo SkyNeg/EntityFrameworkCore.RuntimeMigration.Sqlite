@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace SkyNeg.EntityFrameworkCore.RuntimeMigration.Sqlite
+namespace SkyNeg.Sqlite.RuntimeMigration
 {
     public static class ServiceCollectionExtensions
     {
