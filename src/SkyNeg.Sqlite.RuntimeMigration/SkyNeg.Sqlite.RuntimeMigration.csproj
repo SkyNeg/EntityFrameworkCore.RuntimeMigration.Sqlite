@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Authors>Kirill Skripka</Authors>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/SkyNeg/sqlite-runtime-migration-net</RepositoryUrl>
+    <PackageTags>.net;database;entityframework;sqlite</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Data\Scripts\Create\Tables.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Scripts\Create\Tables.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Scripts\Update\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
